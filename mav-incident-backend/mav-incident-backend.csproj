@@ -43,11 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpServer\Exceptions\BadRequestException.cs" />
+    <Compile Include="HttpServer\HttpHeaderCollection.cs" />
+    <Compile Include="HttpServer\HttpHeaderReadOnlyCollection.cs" />
+    <Compile Include="HttpServer\HttpRequest.cs" />
+    <Compile Include="HttpServer\HttpRequestMethod.cs" />
+    <Compile Include="HttpServer\HttpResponse.cs" />
+    <Compile Include="HttpServer\HttpResponseCode.cs" />
+    <Compile Include="HttpServer\HttpResponseInternalServerError.cs" />
+    <Compile Include="HttpServer\HttpUtilities.cs" />
+    <Compile Include="HttpServer\HttpServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HttpServer\Threading\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

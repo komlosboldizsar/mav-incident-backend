@@ -10,6 +10,8 @@ namespace mav_incident_backend
     {
         static void Main(string[] args)
         {
+            HttpServer.HttpServer server = new HttpServer.HttpServer(80);
+            server.Start();
         }
     }
 }
