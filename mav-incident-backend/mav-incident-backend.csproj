@@ -50,9 +50,13 @@
     <Compile Include="HttpServer\HttpRequestMethod.cs" />
     <Compile Include="HttpServer\HttpResponse.cs" />
     <Compile Include="HttpServer\HttpResponseCode.cs" />
+    <Compile Include="HttpServer\HttpResponseNotFound.cs" />
     <Compile Include="HttpServer\HttpResponseInternalServerError.cs" />
     <Compile Include="HttpServer\HttpUtilities.cs" />
     <Compile Include="HttpServer\HttpServer.cs" />
+    <Compile Include="HttpServer\RequestRouter\Route.cs" />
+    <Compile Include="HttpServer\RequestRouter\Router.cs" />
+    <Compile Include="HttpServer\RestServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
