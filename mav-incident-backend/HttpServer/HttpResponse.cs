@@ -43,8 +43,8 @@ namespace mav_incident_backend.HttpServer
                 responseString.Append(header.Value);
                 responseString.AppendLine();
             }
-            if(Headers.Count > 0)
-                responseString.AppendLine();
+
+            responseString.AppendLine();
 
             responseString.Append(Body);
             responseString.AppendLine();
