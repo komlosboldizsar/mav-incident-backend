@@ -8,6 +8,7 @@ namespace mav_incident_backend.HttpServer
 {
     public enum HttpResponseCode
     {
+        S_200_Success = 200,
         S_400_BadRequest = 400,
         S_403_Forbidden = 403,
         S_404_NotFound = 404,

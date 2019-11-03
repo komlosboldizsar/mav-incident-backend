@@ -10,6 +10,7 @@ namespace mav_incident_backend.HttpServer
     {
 
         public static Dictionary<HttpResponseCode, string> reasonPhrases = new Dictionary<HttpResponseCode, string>() {
+            { HttpResponseCode.S_200_Success, "Success" },
             { HttpResponseCode.S_400_BadRequest, "Bad Request" },
             { HttpResponseCode.S_403_Forbidden, "Forbidden" },
             { HttpResponseCode.S_404_NotFound, "Not Found" },
