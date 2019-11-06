@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,11 +60,23 @@
     <Compile Include="HttpServer\RequestRouter\Route.cs" />
     <Compile Include="HttpServer\RequestRouter\Router.cs" />
     <Compile Include="HttpServer\RestServer.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentDetails.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentRefresh.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentLocations.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentListingByLocation.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentListingByDate.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentListingByCategory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IncidentRest\Endpoints\IncidentListing.cs" />
+    <Compile Include="IncidentRest\IncidentRestService.cs" />
+    <Compile Include="RestService\Endpoints\RestEndpoint.cs" />
+    <Compile Include="RestService\Endpoints\RestResponse.cs" />
+    <Compile Include="RestService\RestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HttpServer\Threading\" />

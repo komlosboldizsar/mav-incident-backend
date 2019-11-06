@@ -1,4 +1,5 @@
 ﻿using mav_incident_backend.HttpServer;
+using mav_incident_backend.IncidentRest;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,8 @@ namespace mav_incident_backend
     {
         static void Main(string[] args)
         {
-            RestServer server = new RestServer(80);
-            server.AddRoute("/index.html", HttpRequestMethod.GET, PrintHello);
-            server.AddRoute("/{id:i}", HttpRequestMethod.GET, PrintHello);
-            server.Start();
-        }
-
-        static void PrintHello(HttpRequest request, HttpResponse response, Dictionary<string, string> parameters)
-        {
-            response.ResponseCode = HttpResponseCode.S_200_Success;
-            response.Body = "Hello World!<br>" + parameters["id"];
+            RestService.RestService rest = new IncidentRestService(80);
+            rest.Start();
         }
     }
 }
