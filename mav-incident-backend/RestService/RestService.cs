@@ -1,12 +1,12 @@
-﻿using mav_incident_backend.HttpServer;
-using mav_incident_backend.RestService.Endpoints;
+﻿using mav_incident_rest.HttpServer;
+using mav_incident_rest.RestService.Endpoints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mav_incident_backend.RestService
+namespace mav_incident_rest.RestService
 {
     abstract public class RestService
     {

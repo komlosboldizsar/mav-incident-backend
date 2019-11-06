@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mav_incident_backend.HttpServer.RequestRouter
+namespace mav_incident_rest.HttpServer.RequestRouter
 {
     class Router
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mav-incident-backend", "mav-incident-backend\mav-incident-backend.csproj", "{D02A8BC1-3F8E-4C5C-96A3-3278D88BA8C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mav-incident-rest", "mav-incident-backend\mav-incident-rest.csproj", "{D02A8BC1-3F8E-4C5C-96A3-3278D88BA8C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

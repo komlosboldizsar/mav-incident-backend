@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mav_incident_backend.HttpServer
+namespace mav_incident_rest.HttpServer
 {
     public class HttpServer
     {

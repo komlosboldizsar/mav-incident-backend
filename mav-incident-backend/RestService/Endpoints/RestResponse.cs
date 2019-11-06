@@ -1,11 +1,11 @@
-﻿using mav_incident_backend.HttpServer;
+﻿using mav_incident_rest.HttpServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mav_incident_backend.RestService.Endpoints
+namespace mav_incident_rest.RestService.Endpoints
 {
     public class RestResponse
     {

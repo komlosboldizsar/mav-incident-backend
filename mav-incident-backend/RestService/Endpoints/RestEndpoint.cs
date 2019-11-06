@@ -1,4 +1,4 @@
-﻿using mav_incident_backend.HttpServer;
+﻿using mav_incident_rest.HttpServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace mav_incident_backend.RestService.Endpoints
+namespace mav_incident_rest.RestService.Endpoints
 {
     public abstract class RestEndpoint
     {

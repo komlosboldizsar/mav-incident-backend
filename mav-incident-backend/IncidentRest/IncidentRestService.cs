@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using mav_incident_backend.RestService.Endpoints;
-using mav_incident_backend.IncidentRest.Endpoints;
+using mav_incident_rest.RestService.Endpoints;
+using mav_incident_rest.IncidentRest.Endpoints;
 
-namespace mav_incident_backend.IncidentRest
+namespace mav_incident_rest.IncidentRest
 {
     public class IncidentRestService : RestService.RestService
     {

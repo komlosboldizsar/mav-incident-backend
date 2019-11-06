@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mav_incident_backend.HttpServer
+namespace mav_incident_rest.HttpServer
 {
     public class HttpHeaderReadOnlyCollection : HttpHeaderCollection
     {

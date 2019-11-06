@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace mav_incident_backend.HttpServer.RequestRouter
+namespace mav_incident_rest.HttpServer.RequestRouter
 {
 
     public delegate void RouteHandlerDelegate(HttpRequest request, HttpResponse response, Dictionary<string, string> parameters);
