@@ -81,5 +81,11 @@
   <ItemGroup>
     <Folder Include="HttpServer\Threading\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mav-incident-dba\mav-incident-dba.csproj">
+      <Project>{fb122bf9-222b-4460-9ddc-37e649e44901}</Project>
+      <Name>mav-incident-dba</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
