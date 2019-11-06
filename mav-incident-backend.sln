@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mav-incident-rest", "mav-incident-backend\mav-incident-rest.csproj", "{D02A8BC1-3F8E-4C5C-96A3-3278D88BA8C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mav-incident-dba", "mav-incident-dba\mav-incident-dba.csproj", "{FB122BF9-222B-4460-9DDC-37E649E44901}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D02A8BC1-3F8E-4C5C-96A3-3278D88BA8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D02A8BC1-3F8E-4C5C-96A3-3278D88BA8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D02A8BC1-3F8E-4C5C-96A3-3278D88BA8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB122BF9-222B-4460-9DDC-37E649E44901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB122BF9-222B-4460-9DDC-37E649E44901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB122BF9-222B-4460-9DDC-37E649E44901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB122BF9-222B-4460-9DDC-37E649E44901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
