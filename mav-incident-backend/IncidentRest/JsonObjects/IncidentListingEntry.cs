@@ -29,10 +29,27 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         private int Processed => dbEntry.Timestamp;
 
         [JsonProperty("locations")]
-        private Dictionary<int, string> Locations => new Dictionary<int, string>() { { 3, "Győr" } };
+        private Dictionary<int, string> Locations {
+            get
+            {
+                Dictionary<int, string> locations = new Dictionary<int, string>();
+                foreach (var location in dbEntry.Locations)
+                    locations.Add(location.ID, location.Name);
+                return locations;
+            }
+        }
 
         [JsonProperty("categories")]
-        private Dictionary<int, string> Categories => new Dictionary<int, string>() { { 1, "késés" }, { 4, "biztber" } };
+        private Dictionary<int, string> Categories
+        {
+            get
+            {
+                Dictionary<int, string> categories = new Dictionary<int, string>();
+                foreach (var category in dbEntry.Categories)
+                    categories.Add(category.ID, category.Name);
+                return categories;
+            }
+        }
 
     }
 
