@@ -34,7 +34,7 @@ namespace mav_incident_dba
             // @source https://stackoverflow.com/questions/12237617/entityframework-same-table-many-to-many-relationship
             modelBuilder.Entity<Incident>()
                 .HasMany<Category>(i => i.Categories)
-                .WithMany()
+                .WithMany(c => c.Incidents)
                 .Map(m =>
                 {
                     m.MapLeftKey("incident_id");
@@ -44,7 +44,7 @@ namespace mav_incident_dba
 
             modelBuilder.Entity<Incident>()
                 .HasMany<Location>(i => i.Locations)
-                .WithMany()
+                .WithMany(l => l.Incidents)
                 .Map(m =>
                 {
                     m.MapLeftKey("incident_id");
