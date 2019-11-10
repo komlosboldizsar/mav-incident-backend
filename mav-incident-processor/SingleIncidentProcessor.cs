@@ -25,7 +25,7 @@ namespace mav_incident_processor
             this.data = new IncidentData();
         }
 
-        public bool Do()
+        public bool Do(bool force = false)
         {
             if (!loadEntity())
             {
@@ -34,8 +34,11 @@ namespace mav_incident_processor
             }
             if (!getData())
                 return false;
-            updateEntity();
-            saveEntity();
+            if (force || (incident.Hash != data.Hash()))
+            {
+                updateEntity();
+                saveEntity();
+            }
             return false;
         }
 
