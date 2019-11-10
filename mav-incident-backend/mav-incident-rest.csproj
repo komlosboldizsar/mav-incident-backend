@@ -67,6 +67,7 @@
     <Compile Include="IncidentRest\Endpoints\IncidentListingByLocation.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByDate.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByCategory.cs" />
+    <Compile Include="IncidentRest\JsonObjects\IncidentListingEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListing.cs" />
