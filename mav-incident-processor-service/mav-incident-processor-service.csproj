@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\mav-incident-dba\mav-incident-dba.csproj">
+      <Project>{FB122BF9-222B-4460-9DDC-37E649E44901}</Project>
+      <Name>mav-incident-dba</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mav-incident-processor\mav-incident-processor.csproj">
+      <Project>{507ce04b-77ce-46ae-965d-973237c8fd78}</Project>
+      <Name>mav-incident-processor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

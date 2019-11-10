@@ -1,4 +1,6 @@
-﻿using System;
+﻿using mav_incident_dba;
+using mav_incident_processor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,11 @@ namespace mav_incident_processor_service
     {
         static void Main(string[] args)
         {
+            IncidentDatabase.Instance.Init();
+            SingleIncidentProcessor proc = new SingleIncidentProcessor(64881);
+            proc.Do();
+            Console.ReadKey();
+            IncidentDatabase.Instance.DeInit();
         }
     }
 }
