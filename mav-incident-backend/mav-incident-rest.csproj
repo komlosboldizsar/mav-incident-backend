@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpServer\Exceptions\NotFoundException.cs" />
     <Compile Include="HttpServer\Exceptions\BadRequestException.cs" />
     <Compile Include="HttpServer\HttpHeaderCollection.cs" />
     <Compile Include="HttpServer\HttpHeaderReadOnlyCollection.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="IncidentRest\Endpoints\IncidentListingByLocation.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByDate.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByCategory.cs" />
+    <Compile Include="IncidentRest\JsonObjects\IncidentsLocationEntry.cs" />
+    <Compile Include="IncidentRest\JsonObjects\IncidentDetailsEntry.cs" />
     <Compile Include="IncidentRest\JsonObjects\IncidentListingEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

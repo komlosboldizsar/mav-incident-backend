@@ -12,7 +12,7 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
     public class IncidentListingEntry
     {
 
-        private Incident dbEntry;
+        protected Incident dbEntry;
 
         public IncidentListingEntry(Incident dbEntry)
         {
@@ -20,16 +20,16 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         }
 
         [JsonProperty("title")]
-        private string Title => dbEntry.Name;
+        protected virtual string Title => dbEntry.Name;
 
         [JsonProperty("updated")]
-        private int Updated => dbEntry.Timestamp;
+        protected virtual int Updated => dbEntry.Timestamp;
 
         [JsonProperty("processed")]
-        private int Processed => dbEntry.Timestamp;
+        protected virtual int Processed => dbEntry.Timestamp;
 
         [JsonProperty("locations")]
-        private Dictionary<int, string> Locations {
+        protected virtual Dictionary<int, string> Locations {
             get
             {
                 Dictionary<int, string> locations = new Dictionary<int, string>();
@@ -40,7 +40,7 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         }
 
         [JsonProperty("categories")]
-        private Dictionary<int, string> Categories
+        protected virtual Dictionary<int, string> Categories
         {
             get
             {

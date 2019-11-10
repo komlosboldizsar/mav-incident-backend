@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using mav_incident_backend.IncidentRest.JsonObjects;
 using mav_incident_dba;
+using mav_incident_dba.Entities;
 using mav_incident_rest.HttpServer;
+using mav_incident_rest.HttpServer.Exceptions;
 using mav_incident_rest.RestService.Endpoints;
 
 namespace mav_incident_rest.IncidentRest.Endpoints
@@ -27,8 +29,6 @@ namespace mav_incident_rest.IncidentRest.Endpoints
                 incidentEntries.Add(new IncidentListingEntry(incident));
 
             resp.Body = incidentEntries;
-            Console.WriteLine(resp.Body);
-            resp.Headers["Content-Type"] = "application/json";
             return resp;
 
         }
