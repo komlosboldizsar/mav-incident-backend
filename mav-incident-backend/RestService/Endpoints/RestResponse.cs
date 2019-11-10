@@ -17,6 +17,7 @@ namespace mav_incident_rest.RestService.Endpoints
         public static RestResponse GetDefault()
         {
             RestResponse resp = new RestResponse();
+            resp.Headers["Content-Type"] = "application/json; charset=utf-8";
             resp.ResponseCode = HttpResponseCode.S_200_Success;
             return resp;
         }

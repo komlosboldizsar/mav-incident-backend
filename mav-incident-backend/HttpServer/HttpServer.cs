@@ -46,7 +46,7 @@ namespace mav_incident_rest.HttpServer
                     byte[] buffer = new byte[1024];
                     ns.Read(buffer, 0, 1024);
                     bytes.AddRange(buffer);
-                    requestString = Encoding.ASCII.GetString(bytes.ToArray());
+                    requestString = Encoding.UTF8.GetString(bytes.ToArray());
                 }
                 HttpRequest request = HttpRequest.CreateFromString(requestString);
 
@@ -63,7 +63,7 @@ namespace mav_incident_rest.HttpServer
 
                 try
                 {
-                    byte[] responseBytes = Encoding.ASCII.GetBytes(response.GetResponseString());
+                    byte[] responseBytes = Encoding.UTF8.GetBytes(response.GetResponseString());
                     ns.Write(responseBytes, 0, responseBytes.Length);
                     ns.Close();
                     client.Close();
