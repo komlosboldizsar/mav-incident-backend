@@ -13,8 +13,12 @@ namespace mav_incident_rest
     {
         static void Main(string[] args)
         {
+            IncidentDatabase.Instance.Init();
+            foreach (var t in IncidentDatabase.Instance.Context.Locations)
+                Console.WriteLine(t.Name);
             RestService.RestService rest = new IncidentRestService(80);
             rest.Start();
+            IncidentDatabase.Instance.DeInit();
         }
     }
 }
