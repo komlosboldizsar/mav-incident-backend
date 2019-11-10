@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace mav_incident_rest.HttpServer.Exceptions
 {
-    class NotFoundException : Exception
+    public class NotFoundException : HttpErrorCodeException
     {
+
+        public NotFoundException() : base(HttpResponseCode.S_404_NotFound)
+        { }
+
+        public NotFoundException(string message) : base(message, HttpResponseCode.S_404_NotFound)
+        { }
+        
+        public NotFoundException(string message, Exception innerException) : base(message, HttpResponseCode.S_404_NotFound, innerException)
+        { }
+
     }
 }

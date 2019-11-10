@@ -58,7 +58,7 @@ namespace mav_incident_rest.HttpServer
                 }
                 catch (Exception e)
                 {
-                    response = new HttpResponseInternalServerError(e);
+                    response = new HttpExceptionResponse(e);
                     Console.WriteLine(e);
                 }
 
@@ -73,6 +73,7 @@ namespace mav_incident_rest.HttpServer
                 {
                     Console.WriteLine(e.ToString());
                 }
+
             }
 
             listener.Stop();

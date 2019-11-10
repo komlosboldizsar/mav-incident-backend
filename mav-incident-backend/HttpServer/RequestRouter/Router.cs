@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mav_incident_rest.HttpServer.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,8 +33,7 @@ namespace mav_incident_rest.HttpServer.RequestRouter
                     return true;
                 }
             }
-            response = new HttpResponseNotFound(request);
-            return false;
+            throw new NotFoundException("Router couldn't find a matching route for path <strong>" + request.Path + "</strong>.");
         }
 
     }

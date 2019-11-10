@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpServer\Exceptions\InternalServerErrorException.cs" />
+    <Compile Include="HttpServer\Exceptions\ForbiddenException.cs" />
     <Compile Include="HttpServer\Exceptions\NotFoundException.cs" />
+    <Compile Include="HttpServer\Exceptions\HttpErrorCodeException.cs" />
     <Compile Include="HttpServer\Exceptions\BadRequestException.cs" />
     <Compile Include="HttpServer\HttpHeaderCollection.cs" />
     <Compile Include="HttpServer\HttpHeaderReadOnlyCollection.cs" />
@@ -55,8 +58,7 @@
     <Compile Include="HttpServer\HttpRequestMethod.cs" />
     <Compile Include="HttpServer\HttpResponse.cs" />
     <Compile Include="HttpServer\HttpResponseCode.cs" />
-    <Compile Include="HttpServer\HttpResponseNotFound.cs" />
-    <Compile Include="HttpServer\HttpResponseInternalServerError.cs" />
+    <Compile Include="HttpServer\HttpExceptionResponse.cs" />
     <Compile Include="HttpServer\HttpUtilities.cs" />
     <Compile Include="HttpServer\HttpServer.cs" />
     <Compile Include="HttpServer\RequestRouter\Route.cs" />
