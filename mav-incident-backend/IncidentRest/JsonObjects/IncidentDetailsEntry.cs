@@ -18,10 +18,6 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         [JsonProperty("content")]
         protected virtual string Content => dbEntry.Description;
 
-        [JsonProperty("url")]
-        protected virtual string URL => dbEntry.URL;
-
-
     }
 
 }

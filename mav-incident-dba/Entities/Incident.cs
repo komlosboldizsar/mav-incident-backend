@@ -31,9 +31,6 @@ namespace mav_incident_dba.Entities
         [Column("incident_process_timestamp")]
         public int ProcessTimestamp { get; set; }
 
-        [Column("incident_url")]
-        public string URL { get; set; }
-
         [Column("incident_hash")]
         public string Hash { get; set; }
 
