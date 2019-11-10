@@ -22,11 +22,14 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         [JsonProperty("title")]
         protected virtual string Title => dbEntry.Name;
 
+        [JsonProperty("created")]
+        protected virtual int Created => dbEntry.CreationTimestamp;
+
         [JsonProperty("updated")]
-        protected virtual int Updated => dbEntry.Timestamp;
+        protected virtual int Updated => dbEntry.UpdateTimestamp;
 
         [JsonProperty("processed")]
-        protected virtual int Processed => dbEntry.Timestamp;
+        protected virtual int Processed => dbEntry.ProcessTimestamp;
 
         [JsonProperty("locations")]
         protected virtual Dictionary<int, string> Locations {

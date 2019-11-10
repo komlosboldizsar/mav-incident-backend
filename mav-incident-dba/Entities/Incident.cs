@@ -21,8 +21,14 @@ namespace mav_incident_dba.Entities
         [Column("incident_description")]
         public string Description { get; set; }
 
-        [Column("incident_timestamp")]
-        public int Timestamp { get; set; }
+        [Column("incident_creation_timestamp")]
+        public int CreationTimestamp { get; set; }
+
+        [Column("incident_update_timestamp")]
+        public int UpdateTimestamp { get; set; }
+
+        [Column("incident_process_timestamp")]
+        public int ProcessTimestamp { get; set; }
 
         [Column("incident_url")]
         public string URL { get; set; }

@@ -33,7 +33,7 @@ namespace mav_incident_rest.IncidentRest.Endpoints
             RestResponse resp = RestResponse.GetDefault();
 
             List<IncidentListingEntry> incidentEntries = new List<IncidentListingEntry>();
-            var incidents = IncidentDatabase.Instance.Context.Incidents.Where(i => ((i.Timestamp >= start) && (i.Timestamp <= end)));
+            var incidents = IncidentDatabase.Instance.Context.Incidents.Where(i => ((i.CreationTimestamp >= start) && (i.UpdateTimestamp <= end)));
             foreach (var incident in incidents)
                 incidentEntries.Add(new IncidentListingEntry(incident));
 
