@@ -12,6 +12,7 @@ namespace mav_incident_dba.Entities
     public class Incident
     {
 
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Column("incident_id")]
         public int ID { get; set; }
 
