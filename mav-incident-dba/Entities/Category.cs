@@ -21,10 +21,10 @@ namespace mav_incident_dba.Entities
         [Column("category_description")]
         public string Description { get; set; }
 
-        public ICollection<Incident> Incidents { get; set; }
+        public virtual ICollection<Incident> Incidents { get; set; }
 
         [ForeignKey(nameof(CategoryFilter.CategoryID))]
-        public ICollection<CategoryFilter> Filters { get; set; }
+        public virtual ICollection<CategoryFilter> Filters { get; set; }
 
     }
 

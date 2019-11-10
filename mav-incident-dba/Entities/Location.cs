@@ -24,7 +24,7 @@ namespace mav_incident_dba.Entities
         [Column("location_coord_lon")]
         public decimal Longitude { get; set; }
 
-        public ICollection<Incident> Incidents { get; set; }
+        public virtual ICollection<Incident> Incidents { get; set; }
 
     }
 

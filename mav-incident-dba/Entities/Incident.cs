@@ -30,9 +30,9 @@ namespace mav_incident_dba.Entities
         [Column("incident_hash")]
         public string Hash { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
 
-        public ICollection<Location> Locations { get; set; }
+        public virtual ICollection<Location> Locations { get; set; }
 
     }
 
