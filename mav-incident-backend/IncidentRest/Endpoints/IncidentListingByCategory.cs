@@ -23,11 +23,11 @@ namespace mav_incident_rest.IncidentRest.Endpoints
         {
 
             if (!urlParams.ContainsKey("id") || !int.TryParse(urlParams["id"], out int id) || id <= 0)
-                throw new BadRequestException();
+                throw new BadRequestException("ID of category must be a positive integer.");
 
             Category category = IncidentDatabase.Instance.Context.Categories.FirstOrDefault(c => (c.ID == id));
             if (category == null)
-                throw new NotFoundException();
+                throw new NotFoundException("Category with the given ID is can't be found in the database.");
 
             RestResponse resp = RestResponse.GetDefault();
 

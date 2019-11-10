@@ -23,11 +23,11 @@ namespace mav_incident_rest.IncidentRest.Endpoints
         {
 
             if (!urlParams.ContainsKey("id") || !int.TryParse(urlParams["id"], out int id) || id <= 0)
-                throw new BadRequestException();
+                throw new BadRequestException("ID of incident must be a positive integer.");
 
             Incident incident = IncidentDatabase.Instance.Context.Incidents.FirstOrDefault(i => (i.ID == id));
             if (incident == null)
-                throw new NotFoundException();
+                throw new NotFoundException("Incident with the given ID is can't be found in the database.");
 
             RestResponse resp = RestResponse.GetDefault();
             resp.Body = new IncidentDetailsEntry(incident);

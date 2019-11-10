@@ -23,11 +23,11 @@ namespace mav_incident_rest.IncidentRest.Endpoints
         {
 
             if (!urlParams.ContainsKey("id") || !int.TryParse(urlParams["id"], out int id) || id <= 0)
-                throw new BadRequestException();
+                throw new BadRequestException("ID of location must be a positive integer.");
 
             Location location = IncidentDatabase.Instance.Context.Locations.FirstOrDefault(l => (l.ID == id));
             if (location == null)
-                throw new NotFoundException();
+                throw new NotFoundException("Location with the given ID is can't be found in the database.");
 
             RestResponse resp = RestResponse.GetDefault();
 

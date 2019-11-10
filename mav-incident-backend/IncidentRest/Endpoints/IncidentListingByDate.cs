@@ -22,10 +22,10 @@ namespace mav_incident_rest.IncidentRest.Endpoints
         {
 
             if (!urlParams.ContainsKey("start") || !int.TryParse(urlParams["start"], out int start) || start <= 0)
-                throw new BadRequestException();
+                throw new BadRequestException("Starting timestamp for incident listing must be a positive integer.");
 
             if (!urlParams.ContainsKey("end") || !int.TryParse(urlParams["end"], out int end) || end <= 0)
-                throw new BadRequestException();
+                throw new BadRequestException("Ending timestamp for incident listing must be a positive integer.");
 
             RestResponse resp = RestResponse.GetDefault();
 
