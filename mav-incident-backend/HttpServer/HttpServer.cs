@@ -59,6 +59,7 @@ namespace mav_incident_rest.HttpServer
                 catch (Exception e)
                 {
                     response = new HttpResponseInternalServerError(e);
+                    Console.WriteLine(e);
                 }
 
                 try
