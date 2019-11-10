@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using mav_incident_backend.IncidentRest.JsonObjects;
+using mav_incident_dba;
 using mav_incident_rest.HttpServer;
 using mav_incident_rest.RestService.Endpoints;
 
@@ -17,9 +19,18 @@ namespace mav_incident_rest.IncidentRest.Endpoints
 
         protected override RestResponse process(HttpRequest request, Dictionary<string, string> urlParams)
         {
+
             RestResponse resp = RestResponse.GetDefault();
-            resp.Body = "[0, 1, 2]";
+
+            List<IncidentListingEntry> incidentEntries = new List<IncidentListingEntry>();
+            foreach (var incident in IncidentDatabase.Instance.Context.Incidents)
+                incidentEntries.Add(new IncidentListingEntry(incident));
+
+            resp.Body = incidentEntries;
+            Console.WriteLine(resp.Body);
+            resp.Headers["Content-Type"] = "application/json";
             return resp;
+
         }
 
     }
