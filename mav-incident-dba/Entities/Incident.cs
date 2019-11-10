@@ -27,6 +27,9 @@ namespace mav_incident_dba.Entities
         [Column("incident_url")]
         public string URL { get; set; }
 
+        [Column("incident_hash")]
+        public string Hash { get; set; }
+
         public ICollection<Category> Categories { get; set; }
 
         public ICollection<Location> Locations { get; set; }
