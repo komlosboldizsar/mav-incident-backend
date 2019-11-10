@@ -17,8 +17,8 @@ namespace mav_incident_rest.IncidentRest
 
         public override void Start()
         {
-            base.Start();
             IncidentDatabase.Instance.Init();
+            base.Start();
         }
 
         public override void Stop()
