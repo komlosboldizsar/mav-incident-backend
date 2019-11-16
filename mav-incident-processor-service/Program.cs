@@ -13,8 +13,8 @@ namespace mav_incident_processor_service
         static void Main(string[] args)
         {
             IncidentDatabase.Instance.Init();
-            SingleIncidentProcessor proc = new SingleIncidentProcessor(64881);
-            proc.Do(true);
+            RssFeedProcessor feedProcessor = new RssFeedProcessor("https://www.mavcsoport.hu/mavinform/rss.xml");
+            feedProcessor.Do();
             Console.ReadKey();
             IncidentDatabase.Instance.DeInit();
         }
