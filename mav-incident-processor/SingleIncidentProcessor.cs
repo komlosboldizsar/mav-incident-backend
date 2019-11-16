@@ -214,7 +214,7 @@ namespace mav_incident_processor
             foreach (Location location in allLocations)
                 if (words.Contains(location.Name))
                     locations.Add(location);
-            incident.Locations = allLocations;
+            incident.Locations = locations;
         }
 
     }
