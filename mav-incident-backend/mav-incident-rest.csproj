@@ -93,6 +93,10 @@
       <Project>{fb122bf9-222b-4460-9ddc-37e649e44901}</Project>
       <Name>mav-incident-dba</Name>
     </ProjectReference>
+    <ProjectReference Include="..\mav-incident-processor\mav-incident-processor.csproj">
+      <Project>{507CE04B-77CE-46AE-965D-973237C8FD78}</Project>
+      <Name>mav-incident-processor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
