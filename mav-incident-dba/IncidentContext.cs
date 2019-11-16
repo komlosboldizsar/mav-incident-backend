@@ -18,6 +18,7 @@ namespace mav_incident_dba
         
         public DbSet<Location> Locations { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<CategoryFilter> CategoryFilters { get; set; }
         public DbSet<Incident> Incidents { get; set; }
 
         public IncidentContext()
@@ -51,6 +52,11 @@ namespace mav_incident_dba
                     m.MapRightKey("location_id");
                     m.ToTable("incident_locations");
                 });
+
+            modelBuilder.Entity<Category>()
+                .HasMany<CategoryFilter>(c => c.Filters)
+                .WithRequired(cf => cf.Category)
+                .HasForeignKey(cf => cf.CategoryID);
 
         }
 

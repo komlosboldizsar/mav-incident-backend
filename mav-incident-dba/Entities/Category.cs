@@ -23,7 +23,6 @@ namespace mav_incident_dba.Entities
 
         public virtual ICollection<Incident> Incidents { get; set; }
 
-        [ForeignKey(nameof(CategoryFilter.CategoryID))]
         public virtual ICollection<CategoryFilter> Filters { get; set; }
 
     }

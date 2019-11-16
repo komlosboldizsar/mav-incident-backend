@@ -16,10 +16,18 @@ namespace mav_incident_dba.Entities
         public int ID { get; set; }
 
         [Column("category_id")]
-        public int CategoryID { get; set; }
+        public int? CategoryID { get; set; }
+
+        public Category Category { get; set; }
 
         [Column("criteria_type")]
-        public CriteriaType Type { get; set; }
+        public string TypeString { get; set; }
+
+        [NotMapped]
+        public CriteriaType Type
+        {
+            get { return ((TypeString == "exclude") ? CriteriaType.Exclude : CriteriaType.Include); }
+        }
 
         [Column("criteria_wordlimit")]
         public int Wordlimit { get; set; }
