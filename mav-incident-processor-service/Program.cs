@@ -14,7 +14,7 @@ namespace mav_incident_processor_service
         {
             IncidentDatabase.Instance.Init();
             SingleIncidentProcessor proc = new SingleIncidentProcessor(64881);
-            proc.Do();
+            proc.Do(true);
             Console.ReadKey();
             IncidentDatabase.Instance.DeInit();
         }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace mav_incident_processor
@@ -37,8 +38,10 @@ namespace mav_incident_processor
             if (force || (incident.Hash != data.Hash()))
             {
                 updateEntity();
+                getCategoriesAndLocations();
                 saveEntity();
             }
+            
             return false;
         }
 
@@ -62,7 +65,11 @@ namespace mav_incident_processor
         private void updateEntity()
         {
             if (newEntity)
+            {
                 incident.ID = id;
+                incident.Categories = new List<Category>();
+                incident.Locations = new List<Location>();
+            }
             incident.Name = data.Title;
             incident.Description = data.Content;
             incident.CreationTimestamp = (int)data.CreateTimestamp;
@@ -148,6 +155,66 @@ namespace mav_incident_processor
         private static string idToUrl(int id)
         {
             return string.Format("https://www.mavcsoport.hu/node/{0}", id);
+        }
+
+        private void getCategoriesAndLocations()
+        {
+            getWords();
+            getCategories();
+            getLocations();
+        }
+
+        private List<string> words;
+
+        private void getWords()
+        {
+            string descr = incident.Description;
+            descr = Regex.Replace(descr, @"<([^>]+)>", (m) => "");
+            descr = descr.Replace("&nbsp", "");
+            string[] descrSplit = descr.Split(new char[] { ' ', '.', ':', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            words = new List<string>(descrSplit);
+        }
+
+        private void getCategories()
+        {
+            List<Category> categories = new List<Category>();
+            List<Category> allCategories = new List<Category>(IncidentDatabase.Instance.Context.Categories);
+            foreach (Category category in allCategories)
+                if (checkCategory(category))
+                    categories.Add(category);
+            incident.Categories = categories;
+        }
+
+        private bool checkCategory(Category category)
+        {
+            bool include = false;
+            List<CategoryFilter> allFilters = new List<CategoryFilter>();
+            allFilters.AddRange(category.Filters);
+            foreach(CategoryFilter filter in allFilters)
+            {
+                int count = 0;
+                foreach(string word in filter.Words)
+                    if (words.Contains(word))
+                        count++;
+                if (count >= filter.Wordlimit)
+                {
+                    if (filter.Type == CriteriaType.Exclude)
+                        return false;
+                    else if (filter.Type == CriteriaType.Include)
+                        include = true;
+                }
+            }
+            return include;
+        }
+
+        private void getLocations()
+        {
+            List<Location> locations = new List<Location>();
+            List<Location> allLocations = new List<Location>(IncidentDatabase.Instance.Context.Locations);
+            foreach (Location location in allLocations)
+                if (words.Contains(location.Name))
+                    locations.Add(location);
+            incident.Locations = allLocations;
         }
 
     }
