@@ -15,6 +15,8 @@ namespace mav_incident_processor_service
             IncidentDatabase.Instance.Init();
             RssFeedProcessor feedProcessor = new RssFeedProcessor("https://www.mavcsoport.hu/mavinform/rss.xml");
             feedProcessor.Do();
+            OldEntryUpdater oldEntryUpdater = new OldEntryUpdater(14, false);
+            oldEntryUpdater.Do();
             Console.ReadKey();
             IncidentDatabase.Instance.DeInit();
         }
