@@ -32,24 +32,24 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         protected virtual int Processed => dbEntry.ProcessTimestamp;
 
         [JsonProperty("locations")]
-        protected virtual Dictionary<int, string> Locations {
+        protected virtual List<LocationShortEntry> Locations {
             get
             {
-                Dictionary<int, string> locations = new Dictionary<int, string>();
+                List<LocationShortEntry> locations = new List<LocationShortEntry>();
                 foreach (var location in dbEntry.Locations)
-                    locations.Add(location.ID, location.Name);
+                    locations.Add(new LocationShortEntry(location));
                 return locations;
             }
         }
 
         [JsonProperty("categories")]
-        protected virtual Dictionary<int, string> Categories
+        protected virtual List<CategoryShortEntry> Categories
         {
             get
             {
-                Dictionary<int, string> categories = new Dictionary<int, string>();
+                List<CategoryShortEntry> categories = new List<CategoryShortEntry>();
                 foreach (var category in dbEntry.Categories)
-                    categories.Add(category.ID, category.Name);
+                    categories.Add(new CategoryShortEntry(category));
                 return categories;
             }
         }
