@@ -42,11 +42,13 @@ namespace mav_incident_rest.HttpServer
                 string requestString = "";
                 while (!requestString.Contains("\r\n\r\n"))
                 {
+                    
                     while (!ns.DataAvailable) ;
                     byte[] buffer = new byte[1024];
                     ns.Read(buffer, 0, 1024);
                     bytes.AddRange(buffer);
                     requestString = Encoding.UTF8.GetString(bytes.ToArray());
+                    Console.WriteLine("--\r\n" + requestString + "--\r\n");
                 }
                 HttpRequest request = HttpRequest.CreateFromString(requestString);
 
@@ -61,6 +63,9 @@ namespace mav_incident_rest.HttpServer
                     response = new HttpExceptionResponse(e);
                     Console.WriteLine(e);
                 }
+
+                response.Headers["Connection"] = "close";
+                response.Headers["Access-Control-Allow-Origin"] = "*";
 
                 try
                 {
