@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using mav_incident_backend.IncidentRest.JsonObjects;
 using mav_incident_dba;
 using mav_incident_dba.Entities;
 using mav_incident_processor;
@@ -32,9 +33,10 @@ namespace mav_incident_rest.IncidentRest.Endpoints
             SingleIncidentProcessor sproc = new SingleIncidentProcessor(id);
             sproc.Do();
 
-            // TODO: error handling
-
+            // Re-query database for updated valuess and generate response
+            incident = IncidentDatabase.Instance.Context.Incidents.FirstOrDefault(i => (i.ID == id));
             RestResponse resp = RestResponse.GetDefault();
+            resp.Body = new IncidentDetailsEntry(incident);
             return resp;
 
         }
