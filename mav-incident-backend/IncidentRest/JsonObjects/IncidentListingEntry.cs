@@ -35,13 +35,14 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         protected virtual int Processed => dbEntry.ProcessTimestamp;
 
         [JsonProperty("locations")]
-        protected virtual List<LocationShortEntry> Locations {
+        protected virtual List<LocationShortEntry> Locations 
+        {
             get
             {
-                List<LocationShortEntry> locations = new List<LocationShortEntry>();
-                foreach (var location in dbEntry.Locations)
-                    locations.Add(new LocationShortEntry(location));
-                return locations;
+                List<LocationShortEntry> locationsJson = new List<LocationShortEntry>();
+                List<Location> locationsOrdered = dbEntry.Locations.OrderBy(loc => loc.Name).ToList();
+                locationsOrdered.ForEach(loc => locationsJson.Add(new LocationShortEntry(loc)));
+                return locationsJson;
             }
         }
 
@@ -50,10 +51,10 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
         {
             get
             {
-                List<CategoryShortEntry> categories = new List<CategoryShortEntry>();
-                foreach (var category in dbEntry.Categories)
-                    categories.Add(new CategoryShortEntry(category));
-                return categories;
+                List<CategoryShortEntry> categoriesJson = new List<CategoryShortEntry>();
+                List<Category> categoriesOrdered = dbEntry.Categories.OrderBy(cat => cat.Name).ToList();
+                categoriesOrdered.ForEach(cat => categoriesJson.Add(new CategoryShortEntry(cat)));
+                return categoriesJson;
             }
         }
 
