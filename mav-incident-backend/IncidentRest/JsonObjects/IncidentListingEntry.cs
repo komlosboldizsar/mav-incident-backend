@@ -19,6 +19,9 @@ namespace mav_incident_backend.IncidentRest.JsonObjects
             this.dbEntry = dbEntry;
         }
 
+        [JsonProperty("id")]
+        protected virtual int ID => dbEntry.ID;
+
         [JsonProperty("title")]
         protected virtual string Title => dbEntry.Name;
 
