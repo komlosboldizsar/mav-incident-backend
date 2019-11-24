@@ -25,8 +25,10 @@ namespace mav_incident_rest.IncidentRest.Endpoints
             RestResponse resp = RestResponse.GetDefault();
 
             List<IncidentListingEntry> incidentEntries = new List<IncidentListingEntry>();
-            foreach (var incident in IncidentDatabase.Instance.Context.Incidents)
-                incidentEntries.Add(new IncidentListingEntry(incident));
+            IncidentDatabase.Instance.Context.Incidents
+                .OrderByDescending(inc => inc.UpdateTimestamp)
+                .ToList()
+                .ForEach(inc => incidentEntries.Add(new IncidentListingEntry(inc)));
 
             resp.Body = incidentEntries;
             return resp;
