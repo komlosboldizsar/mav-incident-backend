@@ -19,7 +19,7 @@ namespace mav_incident_rest.RestService
             addEndpoints();
         }
 
-        public virtual void Start()
+        public virtual bool Start()
             => restServer.Start();
 
         public virtual void Stop()

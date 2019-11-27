@@ -14,7 +14,11 @@ namespace mav_incident_rest
         static void Main(string[] args)
         {
             RestService.RestService rest = new IncidentRestService(80);
-            rest.Start();
+            if(!rest.Start())
+            {
+                Console.WriteLine("Couldn't start REST service. See debug output for details.");
+                Console.ReadKey();
+            }
         }
     }
 }

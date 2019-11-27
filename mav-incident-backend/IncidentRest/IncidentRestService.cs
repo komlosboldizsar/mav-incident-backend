@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using mav_incident_rest.RestService.Endpoints;
 using mav_incident_rest.IncidentRest.Endpoints;
 using mav_incident_dba;
+using System.Diagnostics;
 
 namespace mav_incident_rest.IncidentRest
 {
@@ -15,15 +16,14 @@ namespace mav_incident_rest.IncidentRest
         public IncidentRestService(int port) : base(port)
         { }
 
-        public override void Start()
+        public override bool Start()
         {
             if (!IncidentDatabase.Instance.Init())
             {
-                Console.WriteLine("Couldn't connect to database. See debug output for details.");
-                Console.ReadKey();
-                return;
+                Debug.WriteLine("Couldn't connect to database.");
+                return false;
             }
-            base.Start();
+            return base.Start();
         }
 
         public override void Stop()

@@ -25,7 +25,7 @@ namespace mav_incident_rest.HttpServer
             router.ProcessRequest(request, response);
         }
 
-        public void Start()
+        public bool Start()
             => httpServer.Start();
 
         public void Stop()

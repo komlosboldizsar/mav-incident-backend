@@ -21,7 +21,7 @@ namespace mav_incident_rest.HttpServer
             this.port = port;
         }
 
-        public void Start()
+        public bool Start()
         {
             bool done = false;
 
@@ -82,6 +82,8 @@ namespace mav_incident_rest.HttpServer
             }
 
             listener.Stop();
+
+            return true;
 
         }
 
