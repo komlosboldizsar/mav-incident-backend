@@ -65,12 +65,16 @@
     <Compile Include="HttpServer\RequestRouter\Router.cs" />
     <Compile Include="HttpServer\RestServer.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentDetails.cs" />
+    <Compile Include="IncidentRest\Endpoints\CategoryListing.cs" />
+    <Compile Include="IncidentRest\Endpoints\LocationListing.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentRefresh.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentLocations.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByLocation.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByDate.cs" />
     <Compile Include="IncidentRest\Endpoints\IncidentListingByCategory.cs" />
+    <Compile Include="IncidentRest\JsonObjects\LocationListingEntry.cs" />
     <Compile Include="IncidentRest\JsonObjects\CategoryShortEntry.cs" />
+    <Compile Include="IncidentRest\JsonObjects\CategoryListingEntry.cs" />
     <Compile Include="IncidentRest\JsonObjects\LocationShortEntry.cs" />
     <Compile Include="IncidentRest\JsonObjects\IncidentsLocationEntry.cs" />
     <Compile Include="IncidentRest\JsonObjects\IncidentDetailsEntry.cs" />
