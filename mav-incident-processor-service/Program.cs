@@ -27,9 +27,9 @@ namespace mav_incident_processor_service
             int feedProcessorTimer = 0;
             do
             {
-                if ((oldEntryUpdaterTimer == 0) && options.UpdateOld)
+                if ((oldEntryUpdaterTimer == 0) && !options.NoUpdateOld)
                     oldEntryUpdater.Do();
-                if ((feedProcessorTimer == 0) && options.ProcessNews)
+                if ((feedProcessorTimer == 0) && !options.NoProcessNews)
                     feedProcessor.Do();
                 oldEntryUpdaterTimer++;
                 feedProcessorTimer++;
@@ -56,8 +56,8 @@ namespace mav_incident_processor_service
             [Option('f', "feed-url", Default = "https://www.mavcsoport.hu/mavinform/rss.xml", HelpText = "URL of MÁVINFORM RSS feed.", Required = false)]
             public string FeedURL { get; set; }
 
-            [Option('u', "update-old", Default = true, HelpText = "Update older, known entries.", Required = false)]
-            public bool UpdateOld { get; set; }
+            [Option("no-update-old", Default = false, HelpText = "Update older, known entries.", Required = false)]
+            public bool NoUpdateOld { get; set; }
 
             [Option("update-old-age", Default = 14, HelpText = "Maximal age of entries that are updated.", Required = false)]
             public int UpdateOldMaxAge { get; set; }
@@ -65,8 +65,8 @@ namespace mav_incident_processor_service
             [Option("update-old-frequency", Default = 10, HelpText = "Frequency of updating old incident entries in minutes.", Required = false)]
             public int UpdateOldFrequency { get; set; }
 
-            [Option('n', "process-news", Default = true, HelpText = "Process new feed items and add them to the database.", Required = false)]
-            public bool ProcessNews { get; set; }
+            [Option("no-process-news", Default = false, HelpText = "Process new feed items and add them to the database.", Required = false)]
+            public bool NoProcessNews { get; set; }
 
             [Option("process-news-frequency", Default = 5, HelpText = "Frequency of processing news feed in minutes.", Required = false)]
             public int ProcessNewsFrequency { get; set; }
