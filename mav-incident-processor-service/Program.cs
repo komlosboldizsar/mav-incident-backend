@@ -20,7 +20,14 @@ namespace mav_incident_processor_service
         }
         private static void Do(Options options)
         {
-            IncidentDatabase.Instance.Init();
+
+            if (!IncidentDatabase.Instance.Init())
+            {
+                Console.WriteLine("Couldn't connect to database. See debug output for details.");
+                Console.ReadKey();
+                return;
+            }
+
             OldEntryUpdater oldEntryUpdater = new OldEntryUpdater(options.UpdateOldMaxAge, false);
             RssFeedProcessor feedProcessor = new RssFeedProcessor(options.FeedURL);
             int oldEntryUpdaterTimer = 0;
@@ -40,7 +47,9 @@ namespace mav_incident_processor_service
                 if (!options.RunOnce)
                     Thread.Sleep(60000);
             } while (!options.RunOnce);
+
             IncidentDatabase.Instance.DeInit();
+
         }
         private static void HandleParseError(IEnumerable<Error> errs)
         {

@@ -17,7 +17,12 @@ namespace mav_incident_rest.IncidentRest
 
         public override void Start()
         {
-            IncidentDatabase.Instance.Init();
+            if (!IncidentDatabase.Instance.Init())
+            {
+                Console.WriteLine("Couldn't connect to database. See debug output for details.");
+                Console.ReadKey();
+                return;
+            }
             base.Start();
         }
 

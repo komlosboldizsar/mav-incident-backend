@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigReader.cs" />
     <Compile Include="Entities\CategoryFilter.cs" />
     <Compile Include="Entities\CriteriaType.cs" />
     <Compile Include="Entities\Incident.cs" />
