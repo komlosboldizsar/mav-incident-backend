@@ -82,7 +82,7 @@ namespace mav_incident_processor_service
             [Option('f', "feed-url", Default = null, HelpText = "URL of MÁVINFORM RSS feed. Read from configuration XML file if not specified.", Required = false)]
             public string FeedURL { get; set; }
 
-            [Option("no-update-old", Default = false, HelpText = "Update older, known entries.", Required = false)]
+            [Option("no-update-old", Default = false, HelpText = "Don't update older, known entries.", Required = false)]
             public bool NoUpdateOld { get; set; }
 
             [Option("update-old-age", Default = 14, HelpText = "Maximal age of entries that are updated.", Required = false)]
@@ -91,7 +91,7 @@ namespace mav_incident_processor_service
             [Option("update-old-frequency", Default = 10, HelpText = "Frequency of updating old incident entries in minutes.", Required = false)]
             public int UpdateOldFrequency { get; set; }
 
-            [Option("no-process-news", Default = false, HelpText = "Process new feed items and add them to the database.", Required = false)]
+            [Option("no-process-news", Default = false, HelpText = "Don't process new feed items.", Required = false)]
             public bool NoProcessNews { get; set; }
 
             [Option("process-news-frequency", Default = 5, HelpText = "Frequency of processing news feed in minutes.", Required = false)]
