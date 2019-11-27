@@ -3,6 +3,7 @@ using mav_incident_dba;
 using mav_incident_processor;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -18,8 +19,24 @@ namespace mav_incident_processor_service
                    .WithParsed<Options>(o => Do(o))
                    .WithNotParsed<Options>((errs) => HandleParseError(errs));
         }
+
+        private const string CONFIG_PATH = "rss-config.xml";
+        private static ConfigReader configReader;
         private static void Do(Options options)
         {
+
+            try
+            {
+                configReader = new ConfigReader(CONFIG_PATH);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Couldn't read RSS configuration. Reason: " + ex.Message);
+                Console.ReadKey();
+                return;
+            }
+
+            string feedUrl = options.FeedURL ?? configReader.FeedURL;
 
             if (!IncidentDatabase.Instance.Init())
             {
@@ -29,7 +46,7 @@ namespace mav_incident_processor_service
             }
 
             OldEntryUpdater oldEntryUpdater = new OldEntryUpdater(options.UpdateOldMaxAge, false);
-            RssFeedProcessor feedProcessor = new RssFeedProcessor(options.FeedURL);
+            RssFeedProcessor feedProcessor = new RssFeedProcessor(feedUrl);
             int oldEntryUpdaterTimer = 0;
             int feedProcessorTimer = 0;
             do
@@ -62,7 +79,7 @@ namespace mav_incident_processor_service
             [Option('o', "run-once", Default = false, HelpText = "Run only once or in a loop.", Required = false)]
             public bool RunOnce { get; set; }
 
-            [Option('f', "feed-url", Default = "https://www.mavcsoport.hu/mavinform/rss.xml", HelpText = "URL of MÁVINFORM RSS feed.", Required = false)]
+            [Option('f', "feed-url", Default = null, HelpText = "URL of MÁVINFORM RSS feed. Read from configuration XML file if not specified.", Required = false)]
             public string FeedURL { get; set; }
 
             [Option("no-update-old", Default = false, HelpText = "Update older, known entries.", Required = false)]
