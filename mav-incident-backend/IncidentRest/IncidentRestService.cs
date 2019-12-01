@@ -42,6 +42,8 @@ namespace mav_incident_rest.IncidentRest
             endpoints.Add(new IncidentListingByLocation());
             endpoints.Add(new IncidentLocations());
             endpoints.Add(new IncidentRefresh());
+            endpoints.Add(new LocationListing());
+            endpoints.Add(new CategoryListing());
             return endpoints;
         }
 
